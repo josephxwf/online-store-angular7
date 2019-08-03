@@ -1,6 +1,10 @@
-# MyOnlineStoreApp
+# This is a stater project for Angular7
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.
+
+## Install dependicies
+Run `npm install`
 
 ## Development server
 
@@ -25,3 +29,40 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+## Install bootstrap
+https://stackoverflow.com/questions/43557321/angular-4-how-to-include-bootstrap
+
+## Fix bootstrap include error
+https://stackoverflow.com/questions/45683192/angular-4-bootstrap-4-not-rendering-properly
+
+
+## When deploy it, need add the code below to app.module.ts to switch to product mode
+
+import {enableProdMode} from '@angular/core';
+enableProdMode();
+
+
+
+
+## Technologies
+
+   Angular6, PHP, MySQL
+
+
+
+## Commands to deploy angular app to server
+   1. ng build --prod --build-optimizer
+   2. after step 1, a dist folder will be generated, upload all files in dist folder to S3, make sure index.php is in the root directory.
+   3. change the execution right of index.html to executable and change the base tag to point to the directory you want it to be the root of your website.
+
+
+## Issues
+   1. Caches issue solved after using post method instead of get method
+   2. URL routing issue solved by adding { useHash: true } in app-routing.noudle.ts:
+
+   @NgModule({
+     imports: [ RouterModule.forRoot(routes, { useHash: true }) ], // "useHash: true" solves URL routing issue on http serve
+     exports: [ RouterModule ]
+   })
